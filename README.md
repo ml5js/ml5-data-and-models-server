@@ -14,7 +14,7 @@ A repo to download and serve data and models locally allowing ml5 to run without
 
 * **Pretrained Models**:
   * SketchRNN
-  * bodyPix
+  * bodyPix ✅
   * mobilenet
   * posenet:
     * posenet
