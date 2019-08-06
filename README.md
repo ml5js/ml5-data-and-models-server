@@ -42,7 +42,12 @@ npm run download:bodyPix
   * moview reviews ✅
 * UNET: ✅
   * unet-128 ✅
-
+* face-api: ✅
+  * Mobilenetv1Model ✅
+  * FaceLandmarkModel ✅
+  * FaceLandmark68TinyNet ✅
+  * FaceRecognitionModel ✅
+  * FaceExpressionModel ✅
 ### Doing
 
 * **Pretrained Models**:
@@ -51,12 +56,6 @@ npm run download:bodyPix
     * posenet
   * speech-commands:
     * speechcommands18w
-  * face-api:
-    * Mobilenetv1Model
-    * FaceLandmarkModel
-    * FaceLandmark68TinyNet
-    * FaceRecognitionModel
-    * FaceExpressionModel
   * CVAE:
     * quick_draw
   * DCGAN:
