@@ -4,7 +4,8 @@
   "description": "A repo to download and serve data and models locally allowing ml5 to run without a web connection",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "download:bodyPix": "node ./scripts/download-models/index.js bodyPix"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/ml5js/ml5-data-and-models-server/issues"
   },
-  "homepage": "https://github.com/ml5js/ml5-data-and-models-server#readme"
+  "homepage": "https://github.com/ml5js/ml5-data-and-models-server#readme",
+  "dependencies": {
+    "es6-promise": "^4.2.8",
+    "isomorphic-fetch": "^2.2.1"
+  },
+  "devDependencies": {
+    "mkdirp": "^0.5.1",
+    "zlib": "^1.0.5"
+  }
 }
