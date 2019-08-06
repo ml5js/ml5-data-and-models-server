@@ -40,8 +40,8 @@ A repo to download and serve data and models locally allowing ml5 to run without
     * udnie
     * wave
     * mathura
-  * UNET:
-    * unet-128
+  * UNET: ✅
+    * unet-128 ✅
   * YOLO
   * DoodleNet
 * **Data**:
