@@ -54,14 +54,14 @@ npm run download:bodyPix
     * <s>geo128</s>
     * <s>face</s>
     * <s>resnet128</s>
+* SoundClassification:✅
+  * 18w ✅
 ### Doing
 
 * **Pretrained Models**:
   * mobilenet
   * posenet:
     * posenet
-  * speech-commands:
-    * speechcommands18w
   * pix2pix:
     * pikachu
   * Styletransfer:
