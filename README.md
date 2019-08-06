@@ -7,14 +7,45 @@ A repo to download and serve data and models locally allowing ml5 to run without
 > coming soon
 
 ## Setup
-> coming soon
+
+```
+cd ml5-data-and-models-server
+npm install
+```
 
 ## Download Data and Models
+
+To download models run:
+
+```
+cd ml5-data-and-models-server
+npm run download:all
+```
+
+or for specific models:
+
+for example
+```
+cd ml5-data-and-models-server
+npm run download:bodyPix
+```
+
+## Start the Server
 > coming soon
 
+## Work in Progress
+
+### Done
+* SketchRNN ✅
+* bodyPix ✅
+* Sentiment ✅
+  * moview reviews ✅
+* UNET: ✅
+  * unet-128 ✅
+
+### Doing
+
 * **Pretrained Models**:
-  * SketchRNN ✅
-  * bodyPix ✅
   * mobilenet
   * posenet:
     * posenet
@@ -34,18 +65,14 @@ A repo to download and serve data and models locally allowing ml5 to run without
     * resnet128
   * pix2pix:
     * pikachu
-  * Sentiment
-    * moview reviews
   * Styletransfer:
     * udnie
     * wave
     * mathura
-  * UNET: ✅
-    * unet-128 ✅
   * YOLO
   * DoodleNet
 * **Data**:
   * ????
+  * ????
+  * ????
 
-## Start the Server
-> coming soon
