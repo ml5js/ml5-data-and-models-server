@@ -20,6 +20,7 @@ async function downloadFaceApi(){
 
     await getWeights(STORAGEPATH, outputFolder, 'ssd_mobilenetv1_model-weights_manifest.json')
     await getWeights(STORAGEPATH, outputFolder, 'face_landmark_68_model-weights_manifest.json')
+    await getWeights(STORAGEPATH, outputFolder, 'face_landmark_68_tiny_model-weights_manifest.json')
     await getWeights(STORAGEPATH, outputFolder, 'face_recognition_model-weights_manifest.json')
     await getWeights(STORAGEPATH, outputFolder, 'face_expression_model-weights_manifest.json')
 
