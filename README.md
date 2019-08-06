@@ -13,7 +13,7 @@ A repo to download and serve data and models locally allowing ml5 to run without
 > coming soon
 
 * **Pretrained Models**:
-  * SketchRNN
+  * SketchRNN ✅
   * bodyPix ✅
   * mobilenet
   * posenet:

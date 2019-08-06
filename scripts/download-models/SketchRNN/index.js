@@ -8,7 +8,7 @@ const modelList = require('./modelList');
 
 // cat.gen.json
 async function downloadSketchRnn(){
-    const GOOGLEPATH = "https://storage.googleapis.com/quickdraw-models/sketchRNN/large_models"
+    const STORAGEPATH = "https://storage.googleapis.com/quickdraw-models/sketchRNN/large_models"
     const outputFolder = './models/sketchRnn';
 
     // NOTE: paths are relative to where the script is being called
@@ -18,7 +18,7 @@ async function downloadSketchRnn(){
     Promise.all(
         modelList.map( async (modelName) => {
             const fileName = `${modelName}.gen.json`
-            let modelJson = await fetch(`${GOOGLEPATH}/${fileName}`);
+            let modelJson = await fetch(`${STORAGEPATH}/${fileName}`);
             modelJson = await modelJson.json();
 
             fs.writeFile(`${outputFolder}/${fileName}`, modelJson, () => {

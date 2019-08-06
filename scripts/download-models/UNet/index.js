@@ -3,19 +3,14 @@ require('isomorphic-fetch');
 const fs = require('fs');
 const mkdirp = require('mkdirp');
 
-// const https = require('https');
-// const {join, resolve} = require('path');
-// const {createGunzip} = require('zlib');
 
-// https://storage.googleapis.com/tfjs-models/savedmodel/posenet_mobilenet_075_partmap/model.json
-// https://storage.googleapis.com/tfjs-models/savedmodel/posenet_mobilenet_075_partmap/group1-shard1of2
-// https://storage.googleapis.com/tfjs-models/savedmodel/posenet_mobilenet_075_partmap/group1-shard2of2
+// https://raw.githubusercontent.com/zaidalyafeai/HostedModels/master/unet-128/model.json
+// https://raw.githubusercontent.com/zaidalyafeai/HostedModels/master/unet-128/group1-shard1of2
+// https://raw.githubusercontent.com/zaidalyafeai/HostedModels/master/unet-128/group1-shard2of2
 
-
-
-async function downloadBodyPix(){
-    const STORAGEPATH = "https://storage.googleapis.com/tfjs-models/savedmodel/posenet_mobilenet_075_partmap"
-    const outputFolder = './models/bodyPix';
+async function downloadUNet(){
+    const STORAGEPATH = "https://raw.githubusercontent.com/zaidalyafeai/HostedModels/master/unet-128"
+    const outputFolder = './models/uNet';
     // NOTE: paths are relative to where the script is being called
     mkdirp.sync(outputFolder);
 
@@ -42,5 +37,4 @@ async function downloadBodyPix(){
         
 }
 
-
-module.exports = downloadBodyPix
+module.exports = downloadUNet
