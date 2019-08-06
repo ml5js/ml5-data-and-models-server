@@ -3,6 +3,7 @@ const downloadSketchRnn = require('./SketchRnn');
 const downloadUNet = require('./UNet');
 const downloadSentiment = require('./Sentiment');
 const downloadFaceApi = require('./FaceApi');
+const downloadSoundClassification = require('./SoundClassification');
 
 const selected = process.argv[2];
 console.log(selected.toLowerCase());
@@ -22,6 +23,9 @@ switch (selected.toLowerCase()) {
         return;
     case 'faceapi':
         downloadFaceApi();
+        return;
+    case 'soundclassification':
+        downloadSoundClassification();
         return;
     default:
         console.log("nothing selected!")

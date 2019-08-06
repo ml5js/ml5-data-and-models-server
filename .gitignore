@@ -5,3 +5,4 @@ models/sketchRnn
 models/uNet
 models/sentiment
 models/faceapi
+models/soundclassification

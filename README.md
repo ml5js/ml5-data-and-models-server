@@ -48,6 +48,12 @@ npm run download:bodyPix
   * FaceLandmark68TinyNet ✅
   * FaceRecognitionModel ✅
   * FaceExpressionModel ✅
+* <s>CVAE</s>: (uses local path to model)
+    * <s>quick_draw</s>
+  * <s>DCGAN:</s> (uses local path to model)
+    * <s>geo128</s>
+    * <s>face</s>
+    * <s>resnet128</s>
 ### Doing
 
 * **Pretrained Models**:
@@ -56,12 +62,6 @@ npm run download:bodyPix
     * posenet
   * speech-commands:
     * speechcommands18w
-  * CVAE:
-    * quick_draw
-  * DCGAN:
-    * geo128
-    * face
-    * resnet128
   * pix2pix:
     * pikachu
   * Styletransfer:

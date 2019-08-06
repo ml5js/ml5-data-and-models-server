@@ -9,7 +9,8 @@
     "download:sketchRnn": "node ./scripts/download-models/index.js sketchRnn",
     "download:uNet": "node ./scripts/download-models/index.js uNet",
     "download:sentiment": "node ./scripts/download-models/index.js sentiment",
-    "download:faceapi": "node ./scripts/download-models/index.js faceapi"
+    "download:faceapi": "node ./scripts/download-models/index.js faceapi",
+    "download:soundclassification": "node ./scripts/download-models/index.js soundclassification"
   },
   "repository": {
     "type": "git",
