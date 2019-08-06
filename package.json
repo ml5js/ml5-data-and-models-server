@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "download:bodyPix": "node ./scripts/download-models/index.js bodyPix",
     "download:sketchRnn": "node ./scripts/download-models/index.js sketchRnn",
-    "download:uNet": "node ./scripts/download-models/index.js uNet"
+    "download:uNet": "node ./scripts/download-models/index.js uNet",
+    "download:sentiment": "node ./scripts/download-models/index.js sentiment"
   },
   "repository": {
     "type": "git",

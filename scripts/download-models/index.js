@@ -1,18 +1,23 @@
 const downloadBodyPix = require('./BodyPix');
 const downloadSketchRnn = require('./SketchRnn');
 const downloadUNet = require('./UNet');
+const downloadSentiment = require('./Sentiment');
 
 const selected = process.argv[2];
-console.log(selected)
-switch (selected) {
-    case 'bodyPix':
+console.log(selected.toLowerCase());
+
+switch (selected.toLowerCase()) {
+    case 'bodypix':
         downloadBodyPix();
         return;
-    case 'sketchRnn':
+    case 'sketchrnn':
         downloadSketchRnn();
         return;
-    case 'uNet':
+    case 'unet':
         downloadUNet();
+        return;
+    case 'sentiment':
+        downloadSentiment();
         return;
     default:
         console.log("nothing selected!")
