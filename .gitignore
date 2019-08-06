@@ -4,3 +4,4 @@ models/bodyPix
 models/sketchRnn
 models/uNet
 models/sentiment
+models/faceapi

@@ -8,7 +8,8 @@
     "download:bodyPix": "node ./scripts/download-models/index.js bodyPix",
     "download:sketchRnn": "node ./scripts/download-models/index.js sketchRnn",
     "download:uNet": "node ./scripts/download-models/index.js uNet",
-    "download:sentiment": "node ./scripts/download-models/index.js sentiment"
+    "download:sentiment": "node ./scripts/download-models/index.js sentiment",
+    "download:faceapi": "node ./scripts/download-models/index.js faceapi"
   },
   "repository": {
     "type": "git",
