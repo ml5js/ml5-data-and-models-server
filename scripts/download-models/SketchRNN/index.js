@@ -21,7 +21,7 @@ async function downloadSketchRnn(){
             let modelJson = await fetch(`${STORAGEPATH}/${fileName}`);
             modelJson = await modelJson.json();
 
-            fs.writeFile(`${outputFolder}/${fileName}`, modelJson, () => {
+            fs.writeFile(`${outputFolder}/${fileName}`, JSON.stringify(modelJson), () => {
                 console.log('finished writing: ', fileName)
             });
 
