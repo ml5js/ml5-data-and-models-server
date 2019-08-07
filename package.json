@@ -14,7 +14,8 @@
     "download:mobilenet": "node ./scripts/download-models/index.js mobilenet",
     "download:yolo": "node ./scripts/download-models/index.js yolo",
     "download:posenet": "node ./scripts/download-models/index.js posenet",
-    "download:all": "node ./scripts/download-models/index.js all"
+    "download:all": "node ./scripts/download-models/index.js all",
+    "serve": "node ./index.js"
   },
   "repository": {
     "type": "git",
@@ -28,7 +29,9 @@
   "homepage": "https://github.com/ml5js/ml5-data-and-models-server#readme",
   "dependencies": {
     "es6-promise": "^4.2.8",
-    "isomorphic-fetch": "^2.2.1"
+    "express": "^4.17.1",
+    "isomorphic-fetch": "^2.2.1",
+    "morgan": "^1.9.1"
   },
   "devDependencies": {
     "mkdirp": "^0.5.1",

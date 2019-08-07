@@ -17,8 +17,14 @@ npm install
 
 To download models run:
 
+first go to the directory:
 ```
 cd ml5-data-and-models-server
+```
+
+then either:
+
+```
 npm run download:all
 ```
 
