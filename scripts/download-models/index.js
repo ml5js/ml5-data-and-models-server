@@ -31,6 +31,14 @@ switch (selected.toLowerCase()) {
     case 'mobilenet':
         downloadMobilenet();
         return;
+    case 'all':
+        downloadBodyPix();
+        downloadSketchRnn();
+        downloadSentiment();
+        downloadFaceApi();
+        downloadSoundClassification();
+        downloadMobilenet();
+        return;
     default:
         console.log("nothing selected!")
         return;

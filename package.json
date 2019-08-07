@@ -11,7 +11,8 @@
     "download:sentiment": "node ./scripts/download-models/index.js sentiment",
     "download:faceapi": "node ./scripts/download-models/index.js faceapi",
     "download:soundclassification": "node ./scripts/download-models/index.js soundclassification",
-    "download:mobilenet": "node ./scripts/download-models/index.js mobilenet"
+    "download:mobilenet": "node ./scripts/download-models/index.js mobilenet",
+    "download:all": "node ./scripts/download-models/index.js all"
   },
   "repository": {
     "type": "git",
