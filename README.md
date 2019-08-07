@@ -56,12 +56,13 @@ npm run download:bodyPix
     * <s>resnet128</s>
 * SoundClassification:✅
   * 18w ✅
-
+* mobilenet 🚨- needs review on structuring dir path appropriately
+  * imagenet 🚨- needs review on structuring dir path appropriately
 
 ### Doing
 
 * **Pretrained Models**:
-  * mobilenet
+  
   * posenet:
     * posenet
   * pix2pix:
