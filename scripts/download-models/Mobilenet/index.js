@@ -1,15 +1,12 @@
-require('es6-promise').polyfill();
-require('isomorphic-fetch');
-const fs = require('fs');
-const mkdirp = require('mkdirp');
-
 // https://storage.googleapis.com/tfjs-models/tfjs/mobilenet_v1_0.25_224/model.json
 // https://storage.googleapis.com/tfjs-models/tfjs/mobilenet_v1_0.25_224/group1-shard1of1
 // https://storage.googleapis.com/tfhub-tfjs-modules/google/imagenet/mobilenet_v1_025_224/classification/1/model.json
 // https://storage.googleapis.com/tfhub-tfjs-modules/google/imagenet/mobilenet_v1_025_224/classification/1/group1-shard1of1
 
+const DownloaderUtils = require('../utils');
 
 const STORAGEPATH = 'https://storage.googleapis.com/tfjs-models/tfjs';
+
 
 async function downloadMobilenet() {
 
@@ -20,76 +17,49 @@ async function downloadMobilenet() {
 
 async function getMobilenetByVersion(mobilenetVersion) {
 
+    // set the mobilenet storage path based on the given version
+    const mobilenetStoragePath = `${STORAGEPATH}/${mobilenetVersion}`
 
+    // get the imagenet meta info you need to download stuff to the right place
     const imagenetMeta = getImagenetPath(mobilenetVersion);
-    const imagenetUrl = imagenetMeta.url;
-    const outputFolder = `./models/mobilenet/${imagenetMeta.folder}`;
-    const imagenetOutputFolder = `./models/mobilenet/${imagenetMeta.folder}/imagenet`
+    const imagenetStoragePath = imagenetMeta.STORAGEPATH;
+
+    // set the output folders
+    const mobilenetOutputFolder = `./models/mobilenet/${imagenetMeta.outputFolderRoot}`;
+    const imagenetOutputFolder = `./models/mobilenet/${imagenetMeta.outputFolderImagenet}`
+    
+    // create new downloader utils
+    const mobilenetDownloader = new DownloaderUtils(mobilenetStoragePath, mobilenetOutputFolder)
+    const imagenetDownloader = new DownloaderUtils(imagenetStoragePath, imagenetOutputFolder)
+
     // NOTE: paths are relative to where the script is being called
-    mkdirp.sync(outputFolder);
-    mkdirp.sync(imagenetOutputFolder);
+    mobilenetDownloader.makeOutputPath();
+    imagenetDownloader.makeOutputPath();
+    
 
     // get the modelJson
-    const modelJson = await getModelJson(STORAGEPATH, outputFolder, mobilenetVersion, 'model.json');
-    await getShards(STORAGEPATH, outputFolder, modelJson);
+    const modelJson = await mobilenetDownloader.saveJson('model.json');
+    await mobilenetDownloader.saveWeights(modelJson);
 
     // get the imagenet details
-    const imagenetJson = await getImagenetJson(imagenetUrl, imagenetOutputFolder, 'model.json');
-    await getShards(imagenetUrl, imagenetOutputFolder, imagenetJson);
+    const imagenetJson = await imagenetDownloader.saveJson('model.json');
+    await imagenetDownloader.saveWeights(imagenetJson);
 
-}
-
-async function getModelJson(STORAGEPATH, outputFolder, mobilenetVersion, jsonName) {
-    let modelJson = await fetch(`${STORAGEPATH}/${mobilenetVersion}/${jsonName}`)
-    modelJson = await modelJson.json();
-
-    fs.writeFile(`${outputFolder}/${jsonName}`, JSON.stringify(modelJson), () => {
-        console.log('finished writing:', jsonName)
-    });
-
-    return modelJson
-}
-
-async function getImagenetJson(STORAGEPATH, outputFolder, jsonName) {
-    let modelJson = await fetch(`${STORAGEPATH}/${jsonName}`)
-    modelJson = await modelJson.json();
-
-    fs.writeFile(`${outputFolder}/${jsonName}`, JSON.stringify(modelJson), () => {
-        console.log('finished writing:', jsonName)
-    });
-
-    return modelJson
-}
-
-async function getShards(STORAGEPATH, outputFolder, modelJson) {
-    modelJson.weightsManifest.forEach((weights) => {
-        Promise.all(
-            weights.paths.map(async (fileName) => {
-                let partUrl = `${STORAGEPATH}/${fileName}`;
-
-                let shard = await fetch(partUrl);
-                shard = await shard.buffer();
-
-                fs.writeFile(`${outputFolder}/${fileName}`, shard, () => {
-                    console.log('finished writing: ', fileName)
-                });
-
-            })
-        )
-    })
 }
 
 function getImagenetPath(mobilenetVersion) {
     switch (mobilenetVersion) {
         case 'mobilenet_v1_0.25_224':
             return {
-                url: 'https://storage.googleapis.com/tfhub-tfjs-modules/google/imagenet/mobilenet_v1_025_224/classification/1',
-                    folder: 'mobilenet_v1_025_224'
+                STORAGEPATH: 'https://storage.googleapis.com/tfhub-tfjs-modules/google/imagenet/mobilenet_v1_025_224/classification/1',
+                outputFolderRoot: 'mobilenet_v1_025_224',
+                outputFolderImagenet: 'mobilenet_v1_025_224/imagenet'
             }
         case 'mobilenet_v1_0.50_224':
             return {
-                url: 'https://storage.googleapis.com/tfhub-tfjs-modules/google/imagenet/mobilenet_v1_050_224/classification/1',
-                folder: 'mobilenet_v1_050_224'
+                STORAGEPATH: 'https://storage.googleapis.com/tfhub-tfjs-modules/google/imagenet/mobilenet_v1_050_224/classification/1',
+                outputFolderRoot: 'mobilenet_v1_050_224',
+                outputFolderImagenet: 'mobilenet_v1_050_224/imagenet'
             }
         default:
             console.log("must select valid version")
