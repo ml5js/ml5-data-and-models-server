@@ -86,14 +86,14 @@ function getImagenetPath(mobilenetVersion) {
                 url: 'https://storage.googleapis.com/tfhub-tfjs-modules/google/imagenet/mobilenet_v1_025_224/classification/1',
                     folder: 'mobilenet_v1_025_224'
             }
-            case 'mobilenet_v1_0.50_224':
-                return {
-                    url: 'https://storage.googleapis.com/tfhub-tfjs-modules/google/imagenet/mobilenet_v1_050_224/classification/1',
-                        folder: 'mobilenet_v1_050_224'
-                }
-            default:
-                console.log("must select valid version")
-                return null;
+        case 'mobilenet_v1_0.50_224':
+            return {
+                url: 'https://storage.googleapis.com/tfhub-tfjs-modules/google/imagenet/mobilenet_v1_050_224/classification/1',
+                folder: 'mobilenet_v1_050_224'
+            }
+        default:
+            console.log("must select valid version")
+            return null;
     }
 }
 

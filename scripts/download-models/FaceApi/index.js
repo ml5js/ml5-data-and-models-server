@@ -17,7 +17,7 @@ async function downloadFaceApi(){
     // NOTE: paths are relative to where the script is being called
     downloaderUtils.makeOutputPath();
 
-    
+    // NOTE: face api stores the paths for the shards differently - see utils
     const a = await downloaderUtils.saveJson('ssd_mobilenetv1_model-weights_manifest.json')
     await downloaderUtils.saveWeights(a);
     
@@ -36,23 +36,5 @@ async function downloadFaceApi(){
 
 
 }
-
-
-// async function getWeights(modelJson){
-    
-//     Promise.all(
-//         modelJson[0].paths.map( async (fileName) => {
-//             let partUrl = `${STORAGEPATH}/${fileName}`;
-
-//             let shard = await fetch(partUrl);
-//             shard = await shard.buffer();
-
-//             fs.writeFile(`${outputFolder}/${fileName}`, shard, () => {
-//                 console.log('finished writing: ', fileName)
-//             });
-//         })
-//     )
-// }
-
 
 module.exports = downloadFaceApi
