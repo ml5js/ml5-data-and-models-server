@@ -4,6 +4,7 @@ const downloadUNet = require('./UNet');
 const downloadSentiment = require('./Sentiment');
 const downloadFaceApi = require('./FaceApi');
 const downloadSoundClassification = require('./SoundClassification');
+const downloadMobilenet = require('./Mobilenet');
 
 const selected = process.argv[2];
 console.log(selected.toLowerCase());
@@ -26,6 +27,9 @@ switch (selected.toLowerCase()) {
         return;
     case 'soundclassification':
         downloadSoundClassification();
+        return;
+    case 'mobilenet':
+        downloadMobilenet();
         return;
     default:
         console.log("nothing selected!")

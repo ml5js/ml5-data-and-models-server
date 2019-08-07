@@ -10,7 +10,8 @@
     "download:uNet": "node ./scripts/download-models/index.js uNet",
     "download:sentiment": "node ./scripts/download-models/index.js sentiment",
     "download:faceapi": "node ./scripts/download-models/index.js faceapi",
-    "download:soundclassification": "node ./scripts/download-models/index.js soundclassification"
+    "download:soundclassification": "node ./scripts/download-models/index.js soundclassification",
+    "download:mobilenet": "node ./scripts/download-models/index.js mobilenet"
   },
   "repository": {
     "type": "git",
