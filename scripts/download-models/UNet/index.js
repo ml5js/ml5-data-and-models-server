@@ -1,6 +1,6 @@
 const DownloaderUtils = require('../utils');
 const STORAGEPATH = "https://raw.githubusercontent.com/zaidalyafeai/HostedModels/master/unet-128"
-const outputFolder = './models/uNet';
+const outputFolder = './models/unet';
 
 const downloaderUtils = new DownloaderUtils(STORAGEPATH, outputFolder);
 

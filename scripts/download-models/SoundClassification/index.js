@@ -1,6 +1,6 @@
 const DownloaderUtils = require('../utils');
 const STORAGEPATH = "https://storage.googleapis.com/tfjs-models/tfjs/speech-commands/v0.3/browser_fft/18w"
-const outputFolder = './models/SoundClassification/18w';
+const outputFolder = './models/soundclassification/18w';
 
 const downloaderUtils = new DownloaderUtils(STORAGEPATH, outputFolder);
 

@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "download:bodypix": "node ./scripts/download-models/index.js bodypix",
     "download:sketchrnn": "node ./scripts/download-models/index.js sketchrnn",
-    "download:uNet": "node ./scripts/download-models/index.js uNet",
+    "download:unet": "node ./scripts/download-models/index.js unet",
     "download:sentiment": "node ./scripts/download-models/index.js sentiment",
     "download:faceapi": "node ./scripts/download-models/index.js faceapi",
     "download:soundclassification": "node ./scripts/download-models/index.js soundclassification",

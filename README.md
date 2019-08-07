@@ -24,11 +24,21 @@ npm run download:all
 
 or for specific models:
 
-for example
 ```
-cd ml5-data-and-models-server
-npm run download:bodyPix
+npm run download:bodypix
+npm run download:sketchrnn
+npm run download:unet
+npm run download:sentiment
+npm run download:faceapi
+npm run download:soundclassification
+npm run download:mobilenet
+npm run download:yolo
+npm run download:posenet
+npm run download:all
 ```
+
+→ Your model outputs will live in the `/models` directory
+
 
 ## Start the Server
 > coming soon

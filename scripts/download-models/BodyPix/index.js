@@ -5,7 +5,7 @@ const DownloaderUtils = require('../utils');
 // https://storage.googleapis.com/tfjs-models/savedmodel/posenet_mobilenet_075_partmap/group1-shard2of2
 
 const STORAGEPATH = "https://storage.googleapis.com/tfjs-models/savedmodel/posenet_mobilenet_075_partmap"
-const outputFolder = './models/bodyPix';
+const outputFolder = './models/bodypix';
 
 const downloaderUtils = new DownloaderUtils(STORAGEPATH, outputFolder);
 

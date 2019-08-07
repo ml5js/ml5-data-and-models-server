@@ -9,7 +9,7 @@ const modelList = require('./modelList');
 // cat.gen.json
 async function downloadSketchRnn(){
     const STORAGEPATH = "https://storage.googleapis.com/quickdraw-models/sketchRNN/large_models"
-    const outputFolder = './models/sketchRnn';
+    const outputFolder = './models/sketchrnn';
 
     // NOTE: paths are relative to where the script is being called
     mkdirp.sync(outputFolder);
