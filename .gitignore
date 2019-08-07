@@ -7,3 +7,4 @@ models/sentiment
 models/faceapi
 models/soundclassification
 models/mobilenet
+models/yolo

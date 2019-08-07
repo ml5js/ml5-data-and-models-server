@@ -58,20 +58,20 @@ npm run download:bodyPix
   * 18w ✅
 * mobilenet 🚨- needs review on structuring dir path appropriately
   * imagenet 🚨- needs review on structuring dir path appropriately
+  * <s>pix2pix</s>:(uses local path to model)
+    * <s>pikachu</s>
+* <s>Styletransfer:</s> (uses local path to model)
+    * <s>udnie</s>
+    * <s>wave</s>
+    * <s>mathura</s>
+* YOLO ✅
+
 
 ### Doing
 
 * **Pretrained Models**:
-  
   * posenet:
     * posenet
-  * pix2pix:
-    * pikachu
-  * Styletransfer:
-    * udnie
-    * wave
-    * mathura
-  * YOLO
   * DoodleNet
 * **Data**:
   * ????

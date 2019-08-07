@@ -5,6 +5,7 @@ const downloadSentiment = require('./Sentiment');
 const downloadFaceApi = require('./FaceApi');
 const downloadSoundClassification = require('./SoundClassification');
 const downloadMobilenet = require('./Mobilenet');
+const downloadYolo = require('./YOLO');
 
 const selected = process.argv[2];
 console.log(selected.toLowerCase());
@@ -31,6 +32,9 @@ switch (selected.toLowerCase()) {
     case 'mobilenet':
         downloadMobilenet();
         return;
+    case 'yolo':
+        downloadYolo();
+        return;
     case 'all':
         downloadBodyPix();
         downloadSketchRnn();
@@ -38,6 +42,7 @@ switch (selected.toLowerCase()) {
         downloadFaceApi();
         downloadSoundClassification();
         downloadMobilenet();
+        downloadYolo();
         return;
     default:
         console.log("nothing selected!")

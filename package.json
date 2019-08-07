@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "download:bodyPix": "node ./scripts/download-models/index.js bodyPix",
-    "download:sketchRnn": "node ./scripts/download-models/index.js sketchRnn",
+    "download:bodypix": "node ./scripts/download-models/index.js bodypix",
+    "download:sketchrnn": "node ./scripts/download-models/index.js sketchrnn",
     "download:uNet": "node ./scripts/download-models/index.js uNet",
     "download:sentiment": "node ./scripts/download-models/index.js sentiment",
     "download:faceapi": "node ./scripts/download-models/index.js faceapi",
     "download:soundclassification": "node ./scripts/download-models/index.js soundclassification",
     "download:mobilenet": "node ./scripts/download-models/index.js mobilenet",
+    "download:yolo": "node ./scripts/download-models/index.js yolo",
     "download:all": "node ./scripts/download-models/index.js all"
   },
   "repository": {
