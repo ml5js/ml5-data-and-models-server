@@ -65,13 +65,13 @@ npm run download:bodyPix
     * <s>wave</s>
     * <s>mathura</s>
 * YOLO ✅
-
+* posenet: ✅
+  * posenet ✅
 
 ### Doing
 
 * **Pretrained Models**:
-  * posenet:
-    * posenet
+  
   * DoodleNet
 * **Data**:
   * ????
