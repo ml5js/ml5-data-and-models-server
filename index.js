@@ -8,9 +8,9 @@ const app = express();
 
 app.use(logger('dev'));
 
-// set the public path to models
+// set the public path to "models"
+// this will serve everying at http://localhost:<PORT>/<modelname>
 const publicPath = path.resolve(__dirname, 'models');
-console.log(publicPath)
 app.use(express.static(publicPath));
 
 // TODO: add an index page for all the models to display
