@@ -13,6 +13,7 @@
     "download:soundclassification": "node ./scripts/download-models/index.js soundclassification",
     "download:mobilenet": "node ./scripts/download-models/index.js mobilenet",
     "download:yolo": "node ./scripts/download-models/index.js yolo",
+    "download:posenet": "node ./scripts/download-models/index.js posenet",
     "download:all": "node ./scripts/download-models/index.js all"
   },
   "repository": {

@@ -8,3 +8,4 @@ models/faceapi
 models/soundclassification
 models/mobilenet
 models/yolo
+models/posenet
