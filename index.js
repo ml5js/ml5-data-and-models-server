@@ -7,6 +7,11 @@ const app = express();
 
 
 app.use(logger('dev'));
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 
 // set the public path to "models"
 // this will serve everying at http://localhost:<PORT>/<modelname>
