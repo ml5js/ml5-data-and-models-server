@@ -7,6 +7,7 @@ const downloadSoundClassification = require('./SoundClassification');
 const downloadMobilenet = require('./Mobilenet');
 const downloadYolo = require('./YOLO');
 const downloadPosenet = require('./Posenet');
+const downloadPosenet2 = require('./Posenet2');
 
 const selected = process.argv[2];
 console.log(selected.toLowerCase());
@@ -39,6 +40,9 @@ switch (selected.toLowerCase()) {
     case 'posenet':
         downloadPosenet();
         return;
+    case 'posenet2':
+        downloadPosenet2();
+        return;
     case 'all':
         downloadBodyPix();
         downloadSketchRnn();
@@ -48,6 +52,7 @@ switch (selected.toLowerCase()) {
         downloadMobilenet();
         downloadYolo();
         downloadPosenet();
+        downloadPosenet2();
         return;
     default:
         console.log("nothing selected!")

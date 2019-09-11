@@ -14,6 +14,7 @@
     "download:mobilenet": "node ./scripts/download-models/index.js mobilenet",
     "download:yolo": "node ./scripts/download-models/index.js yolo",
     "download:posenet": "node ./scripts/download-models/index.js posenet",
+    "download:posenet2": "node ./scripts/download-models/index.js posenet2",
     "download:all": "node ./scripts/download-models/index.js all",
     "serve": "node ./index.js"
   },
