@@ -9,3 +9,4 @@ models/soundclassification
 models/mobilenet
 models/yolo
 models/posenet
+models/posenet2
