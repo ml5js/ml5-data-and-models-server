@@ -4,6 +4,8 @@
 // https://storage.googleapis.com/tfhub-tfjs-modules/google/imagenet/mobilenet_v1_025_224/classification/1/group1-shard1of1
 
 const DownloaderUtils = require('../utils');
+const IMAGENET_CLASSES = require('../utils/IMAGENET_CLASSES');
+const fs = require('fs')
 
 const STORAGEPATH = 'https://storage.googleapis.com/tfjs-models/tfjs';
 
@@ -44,6 +46,13 @@ async function getMobilenetByVersion(mobilenetVersion) {
     // get the imagenet details
     const imagenetJson = await imagenetDownloader.saveJson('model.json');
     await imagenetDownloader.saveWeights(imagenetJson);
+
+    const labelArray = Object.values(IMAGENET_CLASSES).map( (item) => item);
+
+    const metadataJson = {labels: labelArray}
+    await fs.writeFile(`${mobilenetOutputFolder}/metadata.json`, JSON.stringify(metadataJson), () => {
+        console.log(`finished writing: metadata.json`)
+    });
 
 }
 
