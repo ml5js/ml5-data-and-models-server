@@ -52,6 +52,7 @@ npm run download:soundclassification
 npm run download:mobilenet
 npm run download:yolo
 npm run download:posenet
+npm run download:posenet2
 npm run download:all
 ```
 
