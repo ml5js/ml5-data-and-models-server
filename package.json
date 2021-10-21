@@ -15,6 +15,7 @@
     "download:yolo": "node ./scripts/download-models/index.js yolo",
     "download:posenet": "node ./scripts/download-models/index.js posenet",
     "download:posenet2": "node ./scripts/download-models/index.js posenet2",
+    "download:handpose": "node ./scripts/download-models/index.js handpose",
     "download:all": "node ./scripts/download-models/index.js all",
     "serve": "node ./index.js"
   },
@@ -29,10 +30,13 @@
   },
   "homepage": "https://github.com/ml5js/ml5-data-and-models-server#readme",
   "dependencies": {
+    "@tensorflow/tfjs-converter": "^3.9.0",
+    "@tensorflow/tfjs-node": "^3.9.0",
     "es6-promise": "^4.2.8",
     "express": "^4.17.1",
-    "isomorphic-fetch": "^2.2.1",
-    "morgan": "^1.9.1"
+    "isomorphic-fetch": "^3.0.0",
+    "morgan": "^1.9.1",
+    "promise-sequence": "^1.0.0"
   },
   "devDependencies": {
     "mkdirp": "^0.5.1",
