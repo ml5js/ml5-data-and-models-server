@@ -17,6 +17,7 @@
     "download:posenet2": "node ./scripts/download-models/index.js posenet2",
     "download:handpose": "node ./scripts/download-models/index.js handpose",
     "download:all": "node ./scripts/download-models/index.js all",
+    "download": "node ./scripts/download-models/index.js",
     "serve": "node ./index.js"
   },
   "repository": {
