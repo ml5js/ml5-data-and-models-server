@@ -1,5 +1,7 @@
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
+
+const sequence = require('promise-sequence');
 const fs = require('fs');
 const mkdirp = require('mkdirp');
 const modelList = require('./modelList');
@@ -15,19 +17,24 @@ async function downloadSketchRnn(){
     mkdirp.sync(outputFolder);
 
     // console.log(modelList)
-    Promise.all(
-        modelList.map( async (modelName) => {
-            const fileName = `${modelName}.gen.json`
-            let modelJson = await fetch(`${STORAGEPATH}/${fileName}`);
-            modelJson = await modelJson.json();
+    await sequence(
+        modelList.map( (modelName) => async () => {
+            const fileName = `${modelName}.gen.json`;
+            const localFilePath = `${outputFolder}/${fileName}`;
+            const url = `${STORAGEPATH}/${fileName}`
+            if (!fs.existsSync(localFilePath)) {
+                let modelJson = await fetch(url);
+                modelJson = await modelJson.json();
 
-            fs.writeFile(`${outputFolder}/${fileName}`, JSON.stringify(modelJson), () => {
+                fs.writeFileSync(`${outputFolder}/${fileName}`, JSON.stringify(modelJson));
                 console.log('finished writing: ', fileName)
-            });
+            } else {
+                console.log('already exists: ', fileName)
+            }
 
         })
     )
-    
+
 }
 
 module.exports = downloadSketchRnn;
