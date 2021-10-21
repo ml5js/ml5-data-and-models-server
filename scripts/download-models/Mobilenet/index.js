@@ -29,7 +29,7 @@ async function getMobilenetByVersion(mobilenetVersion) {
     // set the output folders
     const mobilenetOutputFolder = `./models/mobilenet/${imagenetMeta.outputFolderRoot}`;
     const imagenetOutputFolder = `./models/mobilenet/${imagenetMeta.outputFolderImagenet}`
-    
+
     // create new downloader utils
     const mobilenetDownloader = new DownloaderUtils(mobilenetStoragePath, mobilenetOutputFolder)
     const imagenetDownloader = new DownloaderUtils(imagenetStoragePath, imagenetOutputFolder)
@@ -37,7 +37,7 @@ async function getMobilenetByVersion(mobilenetVersion) {
     // NOTE: paths are relative to where the script is being called
     mobilenetDownloader.makeOutputPath();
     imagenetDownloader.makeOutputPath();
-    
+
 
     // get the modelJson
     const modelJson = await mobilenetDownloader.saveJson('model.json');
@@ -50,9 +50,8 @@ async function getMobilenetByVersion(mobilenetVersion) {
     const labelArray = Object.values(IMAGENET_CLASSES).map( (item) => item);
 
     const metadataJson = {labels: labelArray}
-    await fs.writeFile(`${mobilenetOutputFolder}/metadata.json`, JSON.stringify(metadataJson), () => {
-        console.log(`finished writing: metadata.json`)
-    });
+    fs.writeFileSync(`${mobilenetOutputFolder}/metadata.json`, JSON.stringify(metadataJson));
+    console.log(`finished writing: metadata.json`)
 
 }
 

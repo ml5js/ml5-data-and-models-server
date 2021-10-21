@@ -17,18 +17,30 @@ class DownloaderUtils {
 
     async saveJson(jsonFileWithPath) {
         let modelJson;
+        const url = `${this.STORAGEPATH}/${jsonFileWithPath}`;
+        const localFilePath = `${this.OUTPUTFOLDER}/${jsonFileWithPath}`;
+        if (fs.existsSync(localFilePath)) {
+            modelJson = fs.readFileSync(localFilePath);
+            try {
+                modelJson = JSON.parse(modelJson);
+                console.log('already exists: ', jsonFileWithPath);
+                return modelJson;
+            } catch (error) {
+                console.log(`json parse local file: ${localFilePath} error, so try fetch again`);
+            }
+        }
         // jsonFileWithPath should be `model.json` or `manifest.json` or similar
-        modelJson = await fetch(`${this.STORAGEPATH}/${jsonFileWithPath}`)
+        modelJson = await fetch(url);
         modelJson = await modelJson.json();
 
-        fs.writeFile(`${this.OUTPUTFOLDER}/${jsonFileWithPath}`, JSON.stringify(modelJson), () => {
-            console.log(`finished writing ${jsonFileWithPath}`)
-        });
+        fs.writeFileSync(localFilePath, JSON.stringify(modelJson));
+        console.log(`finished writing ${jsonFileWithPath}`)
 
         return modelJson;
     }
 
     async saveWeights(modelJson) {
+        const tasks = [];
         if (!modelJson.hasOwnProperty('weightsManifest')) {
 
             console.log("no weightsManifest property found - checking modelJson for path property");
@@ -39,12 +51,10 @@ class DownloaderUtils {
 
                     if (!weights.hasOwnProperty('paths')) return;
                     // get an array of promises of the weights
-                    const weightsPromiseArray = weights.paths.map((fileName) => this.saveWeight(fileName));
-
-                    // call and wait for all those promises to finish
-                    Promise.all(weightsPromiseArray)
-
+                    weights.paths.forEach((fileName) => tasks.push(this.saveWeight(fileName)));
                 })
+                // call and wait for all those promises to finish
+                await Promise.all(tasks);
                 return;
             }
 
@@ -57,28 +67,32 @@ class DownloaderUtils {
         modelJson.weightsManifest.forEach((weights) => {
 
             // get an array of promises of the weights
-            const weightsPromiseArray = weights.paths.map((fileName) => this.saveWeight(fileName));
+            weights.paths.forEach((fileName) => tasks.push(this.saveWeight(fileName)));
 
-            // call and wait for all those promises to finish
-            Promise.all(weightsPromiseArray)
         })
+        // call and wait for all those promises to finish
+        Promise.all(tasks)
     }
 
     async saveWeight(fileName) {
         let weightFile;
         const weightUrl = `${this.STORAGEPATH}/${fileName}`;
+        const localFilePath = `${this.OUTPUTFOLDER}/${fileName}`;
+        if (!fs.existsSync(localFilePath)) {
 
-        weightFile = await fetch(weightUrl);
-        weightFile = await weightFile.buffer();
+            weightFile = await fetch(weightUrl);
+            weightFile = await weightFile.buffer();
 
-        fs.writeFile(`${this.OUTPUTFOLDER}/${fileName}`, weightFile, () => {
+            fs.writeFileSync(localFilePath, weightFile);
             console.log(`finished writing: ${fileName}`)
-        });
+        } else {
+            console.log('weight already exists: ', fileName)
+        }
     }
 
 }
 
 
-// function 
+// function
 
 module.exports = DownloaderUtils;

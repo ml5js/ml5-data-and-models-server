@@ -28,25 +28,24 @@ const RESNET_STORAGE_PATH = `https://storage.googleapis.com/tfjs-models/savedmod
 async function downloadPosenet() {
     // mobilenet
     // quant 1
-    getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${1}/050`, `MOBILENETV1_050_quant1_stride8`, `model-stride8.json`);
-    getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${1}/050`, `MOBILENETV1_050_quant1_stride16`, `model-stride16.json`);
-
-    getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${1}/075`, `MOBILENETV1_075_quant1_stride8`, `model-stride8.json`);
-    getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${1}/075`, `MOBILENETV1_075_quant1_stride16`, `model-stride16.json`);
-
-    getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${1}/100`, `MOBILENETV1_100_quant1_stride8`, `model-stride8.json`);
-    getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${1}/100`, `MOBILENETV1_100_quant1_stride16`, `model-stride16.json`);
-
+    await getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${1}/050`, `MOBILENETV1_050_quant1_stride8`, `model-stride8.json`);
+    await getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${1}/050`, `MOBILENETV1_050_quant1_stride16`, `model-stride16.json`);
+    await getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${1}/075`, `MOBILENETV1_075_quant1_stride8`, `model-stride8.json`);
+    await getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${1}/075`, `MOBILENETV1_075_quant1_stride16`, `model-stride16.json`);
+    await getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${1}/100`, `MOBILENETV1_100_quant1_stride8`, `model-stride8.json`);
+    await getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${1}/100`, `MOBILENETV1_100_quant1_stride16`, `model-stride16.json`);
     // // quant 2
-    getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${2}/050`, `MOBILENETV1_050_quant2_stride8`, `model-stride8.json`);
-    getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${2}/050`, `MOBILENETV1_050_quant2_stride16`, `model-stride16.json`);
+    await getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${2}/050`, `MOBILENETV1_050_quant2_stride8`, `model-stride8.json`);
+    await getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${2}/050`, `MOBILENETV1_050_quant2_stride16`, `model-stride16.json`);
+    await getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${2}/075`, `MOBILENETV1_075_quant2_stride8`, `model-stride8.json`);
+    await getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${2}/075`, `MOBILENETV1_075_quant2_stride16`, `model-stride16.json`);
+    await getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${2}/100`, `MOBILENETV1_100_quant2_stride8`, `model-stride8.json`);
+    await getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${2}/100`, `MOBILENETV1_100_quant2_stride16`, `model-stride16.json`);
 
-    getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${2}/075`, `MOBILENETV1_075_quant2_stride8`, `model-stride8.json`);
-    getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${2}/075`, `MOBILENETV1_075_quant2_stride16`, `model-stride16.json`);
 
-    getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${2}/100`, `MOBILENETV1_100_quant2_stride8`, `model-stride8.json`);
-    getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${2}/100`, `MOBILENETV1_100_quant2_stride16`, `model-stride16.json`);
-
+    // quant4
+    await getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/float/050`, `MOBILENETV1_050_quant4_stride8`, `model-stride8.json`);
+    await getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/float/075`, `MOBILENETV1_075_quant4_stride16`, `model-stride16.json`);
 
     // TODO: not working v101 and quant4
     // getPosenetByVersion(`${MOBILENET_STORAGE_PATH}/quant${1}/101`, `MOBILENETV1_101_quant1_stride8`, `model-stride8.json`);
@@ -55,16 +54,12 @@ async function downloadPosenet() {
 
 
     // resnet50
-    getPosenetByVersion(`${RESNET_STORAGE_PATH}/quant${1}`, `RESENET50_quant1_stride16`, `model-stride16.json`);
-    getPosenetByVersion(`${RESNET_STORAGE_PATH}/quant${2}`, `RESENET50_quant2_stride16`, `model-stride16.json`);
-    
-    getPosenetByVersion(`${RESNET_STORAGE_PATH}/quant${1}`, `RESENET50_quant1_stride32`, `model-stride32.json`);
-    getPosenetByVersion(`${RESNET_STORAGE_PATH}/quant${2}`, `RESENET50_quant2_stride32`, `model-stride32.json`);
-    // TODO: quant4 currently not working
-    // getPosenetByVersion(`${RESNET_STORAGE_PATH}/quant${4}`, `RESENET50_quant4_stride32`, `model-stride32.json`);
-
-    // TODO: quant4 currently not working
-    // getPosenetByVersion(`${RESNET_STORAGE_PATH}/quant${4}`, `RESENET50_quant4_stride16`, `model-stride16.json`);
+    await getPosenetByVersion(`${RESNET_STORAGE_PATH}/quant${1}`, `RESENET50_quant1_stride16`, `model-stride16.json`);
+    await getPosenetByVersion(`${RESNET_STORAGE_PATH}/quant${2}`, `RESENET50_quant2_stride16`, `model-stride16.json`);
+    await getPosenetByVersion(`${RESNET_STORAGE_PATH}/quant${1}`, `RESENET50_quant1_stride32`, `model-stride32.json`);
+    await getPosenetByVersion(`${RESNET_STORAGE_PATH}/quant${2}`, `RESENET50_quant2_stride32`, `model-stride32.json`);
+    await getPosenetByVersion(`${RESNET_STORAGE_PATH}/float`, `RESENET50_quant4_stride32`, `model-stride32.json`);
+    await getPosenetByVersion(`${RESNET_STORAGE_PATH}/float`, `RESENET50_quant4_stride16`, `model-stride16.json`);
 }
 
 async function getPosenetByVersion(STORAGEPATH, OUTPUTDIR, FNAME) {
@@ -76,7 +71,7 @@ async function getPosenetByVersion(STORAGEPATH, OUTPUTDIR, FNAME) {
     posenetDownloader.makeOutputPath();
 
     const posenetManifest = await posenetDownloader.saveJson(FNAME);
-    console.log(posenetManifest)
+    // console.log(posenetManifest)
 
     await getWeights(storagePath, outputPath, posenetManifest);
 
@@ -93,17 +88,20 @@ async function getWeights(storagePath, outputPath, manifest) {
         let weightFile;
 
         const weightUrl = `${storagePath}/${fileName}`;
+        const localFilePath = `${outputPath}/${fileName}`;
 
-        weightFile = await fetch(weightUrl);
-        weightFile = await weightFile.buffer();
+        if (!fs.existsSync(localFilePath)) {
+            weightFile = await fetch(weightUrl);
+            weightFile = await weightFile.buffer();
 
-        fs.writeFile(`${outputPath}/${fileName}`, weightFile, () => {
+            fs.writeFileSync(localFilePath, weightFile);
             console.log(`finished writing: ${fileName}`)
-        });
-
+        } else {
+            console.log('weight already exists: ', fileName)
+        }
     })
 
-    Promise.all(weightsPromiseArray)
+    return Promise.all(weightsPromiseArray)
 }
 
 
