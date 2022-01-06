@@ -1,5 +1,5 @@
 const downloadBodyPix = require('./BodyPix');
-const downloadSketchRnn = require('./SketchRnn');
+const downloadSketchRnn = require('./SketchRNN');
 const downloadUNet = require('./UNet');
 const downloadSentiment = require('./Sentiment');
 const downloadFaceApi = require('./FaceApi');
